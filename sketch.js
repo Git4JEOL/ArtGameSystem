@@ -1,6 +1,9 @@
 let stage = 1;
 let numSegments = 10;
 let direction = 'right';
+let canvas;
+let canvasWidth = 600;
+let canvasHeight = 400;
 
 const xStart = 0; //X 시작 좌표
 const yStart = 250; //Snake 시작 좌표
@@ -19,15 +22,16 @@ let scoreElem;//점수를 나타내주는 변수
 let fruitElem = [];
 let cnt = 0;
 
-function setup() {//설정 초기값
+function setup() {//설정 초  기값
   //점수 속성값 설정
   scoreElem = createDiv('Score = 0');
   scoreElem.position(20, 20);
   scoreElem.id = 'score';
   scoreElem.style('color', 'white');
 
-
-  createCanvas(500, 500);//Canvas크기 설정
+  canvas = createCanvas(canvasWidth, canvasHeight);
+  canvas.position(windowWidth/2 - canvasWidth/2, 20);
+  noCursor();
   frameRate(15);//1초당 15프레임
   stroke(255);
   strokeWeight(10);
